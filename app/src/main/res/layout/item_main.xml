@@ -31,7 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="16dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="4dp"
+            android:minLines="2"
             android:layout_toEndOf="@id/img_item_photo"
             android:layout_toRightOf="@id/img_item_photo"
             android:textSize="16sp"
@@ -62,12 +63,12 @@
             android:gravity="bottom">
 
             <Button
-                android:id="@+id/btn_detail"
+                android:id="@+id/btn_profile"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/detail"
+                android:text="@string/profile"
                 android:textSize="12sp"/>
 
             <Button
