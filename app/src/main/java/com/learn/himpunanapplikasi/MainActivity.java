@@ -12,7 +12,7 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends OptionsMenuActivity {
     private RecyclerView rvHimpunan;
     private ArrayList<Himpunan> list = new ArrayList<>();
 
@@ -27,30 +27,30 @@ public class MainActivity extends AppCompatActivity {
         showRecyclerItem();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        setMode(item.getItemId());
-        return super.onOptionsItemSelected(item);
-    }
-
-    public void setMode(int selectedMode) {
-        switch (selectedMode) {
-            case R.id.list_himpunan:
-                showRecyclerItem();
-                break;
-
-            case R.id.about_menu:
-                Intent aboutintent = new Intent(MainActivity.this, About_Activity.class);
-                startActivity(aboutintent);
-                break;
-        }
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.main_menu, menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        setMode(item.getItemId());
+//        return super.onOptionsItemSelected(item);
+//    }
+//
+//    public void setMode(int selectedMode) {
+//        switch (selectedMode) {
+//            case R.id.list_himpunan:
+//                showRecyclerItem();
+//                break;
+//
+//            case R.id.about_menu:
+//                Intent aboutintent = new Intent(MainActivity.this, About_Activity.class);
+//                startActivity(aboutintent);
+//                break;
+//        }
+//    }
 
     private void showRecyclerItem(){
         rvHimpunan.setLayoutManager(new LinearLayoutManager(this));
