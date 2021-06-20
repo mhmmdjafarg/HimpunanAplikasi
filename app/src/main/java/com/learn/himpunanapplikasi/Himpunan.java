@@ -1,6 +1,8 @@
 package com.learn.himpunanapplikasi;
 
-public class Himpunan {
+import java.io.Serializable;
+
+public class Himpunan implements Serializable {
     private String namaHimpunan;
     private String singkatanHimpunan;
     private String deskripsi;
@@ -39,7 +41,7 @@ public class Himpunan {
         this.photo = photo;
     }
 
-    public String getLinkWebsite(){
+    public String getLinkInstagram(){
         return this.linkInstagram;
     }
 

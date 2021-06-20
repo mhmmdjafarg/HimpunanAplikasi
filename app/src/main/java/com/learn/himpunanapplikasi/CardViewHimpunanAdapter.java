@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +20,8 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.ArrayList;
 
 public class CardViewHimpunanAdapter extends RecyclerView.Adapter<CardViewHimpunanAdapter.CardViewViewHolder> {
+    private OnItemClickCallback onItemClickCallback;
+
     private ArrayList<Himpunan> listHimpunan;
 
     public CardViewHimpunanAdapter(ArrayList<Himpunan> list){
@@ -46,7 +49,7 @@ public class CardViewHimpunanAdapter extends RecyclerView.Adapter<CardViewHimpun
         holder.btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                onItemClickCallback.onItemClicked(listHimpunan.get(holder.getAdapterPosition()));
             }
         });
 //        holder.btnInstagram.setOnClickListener(new View.OnClickListener() {
@@ -79,5 +82,12 @@ public class CardViewHimpunanAdapter extends RecyclerView.Adapter<CardViewHimpun
             btnProfile = itemView.findViewById(R.id.btn_profile);
             btnShare = itemView.findViewById(R.id.btn_share);
         }
+    }
+
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
+    }
+    public interface OnItemClickCallback {
+        void onItemClicked(Himpunan data);
     }
 }

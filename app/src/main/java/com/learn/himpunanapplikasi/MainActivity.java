@@ -7,9 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class MainActivity extends OptionsMenuActivity {
@@ -24,38 +27,24 @@ public class MainActivity extends OptionsMenuActivity {
         rvHimpunan.setHasFixedSize(true);
 
         list.addAll(DataHimpunan.getListData());
+        setActionBarTitle(title);
         showRecyclerItem();
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.main_menu, menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        setMode(item.getItemId());
-//        return super.onOptionsItemSelected(item);
-//    }
-//
-//    public void setMode(int selectedMode) {
-//        switch (selectedMode) {
-//            case R.id.list_himpunan:
-//                showRecyclerItem();
-//                break;
-//
-//            case R.id.about_menu:
-//                Intent aboutintent = new Intent(MainActivity.this, About_Activity.class);
-//                startActivity(aboutintent);
-//                break;
-//        }
-//    }
 
     private void showRecyclerItem(){
         rvHimpunan.setLayoutManager(new LinearLayoutManager(this));
         CardViewHimpunanAdapter cardViewHimpunanAdapter = new CardViewHimpunanAdapter(list);
         rvHimpunan.setAdapter(cardViewHimpunanAdapter);
+
+        cardViewHimpunanAdapter.setOnItemClickCallback(new CardViewHimpunanAdapter.OnItemClickCallback() {
+            @Override
+            public void onItemClicked(Himpunan data) {
+                Intent detailIntent = new Intent(MainActivity.this, DetailActivity.class);
+                detailIntent.putExtra("SelectedHimpunan", data);
+                OptionsMenuActivity.page = 2;
+                startActivity(detailIntent);
+            }
+        });
     }
 
 }

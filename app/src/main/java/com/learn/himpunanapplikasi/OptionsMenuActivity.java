@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 public class OptionsMenuActivity extends AppCompatActivity {
     public static int page = 1;
+    public static String title = "List Himpunan";
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -26,19 +27,27 @@ public class OptionsMenuActivity extends AppCompatActivity {
     public void setMode(int selectedMode) {
         switch (selectedMode) {
             case R.id.list_himpunan:
-                if(page != 1){
+                if (page != 1) {
                     Intent mainIntent = new Intent(OptionsMenuActivity.this, MainActivity.class);
                     startActivity(mainIntent);
+                    title = "List Himpunan";
                     page = 1;
                 }
                 break;
             case R.id.about_menu:
-                if(page != 0){
+                if (page != 0) {
                     Intent aboutintent = new Intent(OptionsMenuActivity.this, About_Activity.class);
                     startActivity(aboutintent);
+                    title = "About";
                     page = 0;
                 }
                 break;
+        }
+    }
+
+    protected void setActionBarTitle(String title) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
         }
     }
 }
