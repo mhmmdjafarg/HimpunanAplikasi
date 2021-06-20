@@ -8,12 +8,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <ImageView
             android:id="@+id/photo_himpunan"
-            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:adjustViewBounds="true"
+            android:padding="10dp"
             android:scaleType="fitCenter"
             android:src="@drawable/himasda" />
 
@@ -22,12 +23,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
             android:layout_marginBottom="4dp"
             android:text="@string/namaHimpunan"
-            android:textAllCaps="true"
             android:textAlignment="center"
+            android:textAllCaps="true"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -38,8 +39,8 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:text="HME"
-            android:textAllCaps="true"
             android:textAlignment="center"
+            android:textAllCaps="true"
             android:textSize="18sp" />
 
         <TextView
@@ -47,15 +48,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:padding="8dp"
-            android:textSize="18sp"
             android:justificationMode="inter_word"
-            android:text="@string/deskripsi_himpunan"/>
+            android:padding="8dp"
+            android:text="@string/deskripsi_himpunan"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/social_himpunan"
-            android:text="@string/social_himpunan"
-            style="@style/ButtonGeneral" />
+            style="@style/ButtonGeneral"
+            android:text="@string/social_himpunan" />
     </LinearLayout>
 
 </ScrollView>

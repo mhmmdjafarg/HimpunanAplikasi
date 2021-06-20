@@ -1,8 +1,6 @@
 package com.learn.himpunanapplikasi;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,18 +18,16 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.ArrayList;
 
 public class CardViewHimpunanAdapter extends RecyclerView.Adapter<CardViewHimpunanAdapter.CardViewViewHolder> {
-    private OnItemClickCallback onItemClickCallback;
-
     private ArrayList<Himpunan> listHimpunan;
 
-    public CardViewHimpunanAdapter(ArrayList<Himpunan> list){
+    public CardViewHimpunanAdapter(ArrayList<Himpunan> list) {
         this.listHimpunan = list;
     }
 
     @NonNull
     @Override
     public CardViewViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_main,viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_main, viewGroup, false);
         return new CardViewViewHolder(view);
     }
 
@@ -49,19 +45,24 @@ public class CardViewHimpunanAdapter extends RecyclerView.Adapter<CardViewHimpun
         holder.btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onItemClickCallback.onItemClicked(listHimpunan.get(holder.getAdapterPosition()));
+                Intent detailIntent = new Intent(v.getContext(), DetailActivity.class);
+                detailIntent.putExtra("SelectedHimpunan", listHimpunan.get(holder.getAdapterPosition()));
+                OptionsMenuActivity.page = 2;
+                v.getContext().startActivity(detailIntent);
             }
         });
-//        holder.btnInstagram.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Uri uri = Uri.parse(himpunan.getLinkWebsite());
-//                Intent instagram = new Intent(Intent.ACTION_VIEW, uri);
-//                instagram.setPackage("com.instagram.android");
-//                startActivity(instagram);
-//
-//            }
-//        });
+
+        holder.btnShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Himpunan h = listHimpunan.get(holder.getAdapterPosition());
+                String text = "Lihat instagram official dari " + h.getNamaHimpunan() + " disingkat " + h.getSingkatanHimpunan() + " pada link berikut " + h.getLinkInstagram();
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                sharingIntent.putExtra(Intent.EXTRA_TEXT, text);
+                v.getContext().startActivity(Intent.createChooser(sharingIntent, "Share text via"));
+            }
+        });
     }
 
     @Override
@@ -82,12 +83,5 @@ public class CardViewHimpunanAdapter extends RecyclerView.Adapter<CardViewHimpun
             btnProfile = itemView.findViewById(R.id.btn_profile);
             btnShare = itemView.findViewById(R.id.btn_share);
         }
-    }
-
-    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback;
-    }
-    public interface OnItemClickCallback {
-        void onItemClicked(Himpunan data);
     }
 }

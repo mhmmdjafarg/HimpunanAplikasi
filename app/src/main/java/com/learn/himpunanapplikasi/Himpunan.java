@@ -41,11 +41,11 @@ public class Himpunan implements Serializable {
         this.photo = photo;
     }
 
-    public String getLinkInstagram(){
+    public String getLinkInstagram() {
         return this.linkInstagram;
     }
 
-    public void setLinkInstagram(String linkInstagram){
+    public void setLinkInstagram(String linkInstagram) {
         this.linkInstagram = linkInstagram;
     }
 }
