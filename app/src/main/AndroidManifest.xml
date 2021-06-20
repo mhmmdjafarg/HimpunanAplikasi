@@ -18,9 +18,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DetailActivity" />
+        <activity android:name=".DetailActivity">
+            android:parentActivityName="com.learn.himpunanapplikasi.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.learn.himpunanapplikasi.MainActivity" />
+        </activity>
         <activity android:name=".OptionsMenuActivity" />
-        <activity android:name=".About_Activity" />
+        <activity android:name=".About_Activity" >
+            android:parentActivityName="com.learn.himpunanapplikasi.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.learn.himpunanapplikasi.MainActivity" />
+        </activity>
         <activity android:name=".MainActivity" />
     </application>
 

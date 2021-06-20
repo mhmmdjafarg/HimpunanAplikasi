@@ -19,6 +19,8 @@ public class DetailActivity extends OptionsMenuActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+        page = 2;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ImageView imgPhoto = findViewById(R.id.photo_himpunan);
         TextView titleHimpunan = findViewById(R.id.title_himpunan);

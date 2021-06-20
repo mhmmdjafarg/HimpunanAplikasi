@@ -15,12 +15,13 @@ public class MainActivity extends OptionsMenuActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        page = 1;
         setContentView(R.layout.activity_main);
         rvHimpunan = findViewById(R.id.rv_himpunan);
         rvHimpunan.setHasFixedSize(true);
 
         list.addAll(DataHimpunan.getListData());
-        setActionBarTitle(title);
+        setActionBarTitle("List Himpunan");
         showRecyclerItem();
     }
 

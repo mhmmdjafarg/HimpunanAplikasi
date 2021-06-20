@@ -8,6 +8,8 @@ public class About_Activity extends OptionsMenuActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about);
-        setActionBarTitle(title);
+        setActionBarTitle("About");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        page = 0;
     }
 }
