@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class OptionsMenuActivity extends AppCompatActivity {
+    public static int page = 1;
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
@@ -24,13 +26,18 @@ public class OptionsMenuActivity extends AppCompatActivity {
     public void setMode(int selectedMode) {
         switch (selectedMode) {
             case R.id.list_himpunan:
-                Intent mainIntent = new Intent(OptionsMenuActivity.this, MainActivity.class);
-                startActivity(mainIntent);
+                if(page != 1){
+                    Intent mainIntent = new Intent(OptionsMenuActivity.this, MainActivity.class);
+                    startActivity(mainIntent);
+                    page = 1;
+                }
                 break;
-
             case R.id.about_menu:
-                Intent aboutintent = new Intent(OptionsMenuActivity.this, About_Activity.class);
-                startActivity(aboutintent);
+                if(page != 0){
+                    Intent aboutintent = new Intent(OptionsMenuActivity.this, About_Activity.class);
+                    startActivity(aboutintent);
+                    page = 0;
+                }
                 break;
         }
     }

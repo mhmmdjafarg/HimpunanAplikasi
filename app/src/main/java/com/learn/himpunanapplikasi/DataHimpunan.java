@@ -90,7 +90,7 @@ public class DataHimpunan {
 
     static ArrayList<Himpunan> getListData() {
         ArrayList<Himpunan> list = new ArrayList<>();
-        for (int i = 0; i < himpunanNames.length; i++){
+        for (int i = 0; i < himpunanNames.length; i++) {
             Himpunan himpunan = new Himpunan();
             himpunan.setNamaHimpunan(himpunanNames[i]);
             himpunan.setSingkatanHimpunan(himpunanSingkatans[i]);

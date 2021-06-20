@@ -43,6 +43,12 @@ public class CardViewHimpunanAdapter extends RecyclerView.Adapter<CardViewHimpun
         holder.tvNamaHimpunan.setText(himpunan.getNamaHimpunan());
         holder.tvSingkatanHimpunan.setText(himpunan.getSingkatanHimpunan());
 
+        holder.btnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 //        holder.btnInstagram.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -63,7 +69,7 @@ public class CardViewHimpunanAdapter extends RecyclerView.Adapter<CardViewHimpun
     public class CardViewViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPhoto;
         TextView tvNamaHimpunan, tvSingkatanHimpunan;
-        Button btnProfile, btnInstagram;
+        Button btnProfile, btnShare;
 
         public CardViewViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -71,7 +77,7 @@ public class CardViewHimpunanAdapter extends RecyclerView.Adapter<CardViewHimpun
             tvNamaHimpunan = itemView.findViewById(R.id.tv_item_name);
             tvSingkatanHimpunan = itemView.findViewById(R.id.tv_item_singkatan);
             btnProfile = itemView.findViewById(R.id.btn_profile);
-            btnInstagram = itemView.findViewById(R.id.btn_visit_instagram);
+            btnShare = itemView.findViewById(R.id.btn_share);
         }
     }
 }

@@ -71,12 +71,12 @@
                 android:textSize="12sp"/>
 
             <Button
-                android:id="@+id/btn_visit_instagram"
+                android:id="@+id/btn_share"
                 android:layout_width="match_parent"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/instagram"
+                android:text="@string/share"
                 android:textSize="12sp"/>
         </LinearLayout>
     </RelativeLayout>
